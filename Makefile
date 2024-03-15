@@ -5,25 +5,17 @@ CFLAGS = -Wall -Wextra -Werror
 SRC_FILES = src/ft_printf.c src/ft_printnbr.c src/ft_printhex.c src/ft_printaddr.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
-LIBFT = libft/libft.a
-
 all: $(NAME)
 
-$(NAME): libft $(OBJ_FILES)
-	cp $(LIBFT) $(NAME)
+$(NAME): $(OBJ_FILES)
 	ar rcs $(NAME) $(OBJ_FILES)
-
-libft:
-	make -C libft
 
 clean:
 	rm -f $(OBJ_FILES)
-	make -C libft clean
 
 fclean: clean
 	rm -f $(NAME)
-	make -C libft fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY: all clean fclean re
