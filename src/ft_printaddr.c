@@ -6,7 +6,7 @@
 /*   By: dkaiser <dkaiser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:33:53 by dkaiser           #+#    #+#             */
-/*   Updated: 2024/03/15 12:40:52 by dkaiser          ###   ########.fr       */
+/*   Updated: 2024/03/15 13:19:34 by dkaiser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ static void	printaddr_rec(unsigned long addr, int *len)
 		c = ('a' - 10) + (addr % 16);
 	if (addr > 15)
 		printaddr_rec(addr / 16, len);
-	if (*len < 0)
-		return ;
 	success = write(1, &c, 1);
-	if (success < 0)
+	if (success < 0 || *len < 2)
 		*len = -1;
 	else
 		(*len)++;
