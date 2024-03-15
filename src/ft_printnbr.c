@@ -6,48 +6,75 @@
 /*   By: dkaiser <dkaiser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:18:40 by dkaiser           #+#    #+#             */
-/*   Updated: 2024/03/13 15:49:00 by dkaiser          ###   ########.fr       */
+/*   Updated: 2024/03/15 12:40:43 by dkaiser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-#include <unistd.h>
 
-static int get_len(long n)
-{
-    int len;
-
-    len = 0;
-    if (n == 0)
-        return 1;
-    if (n < 0)
-        len++;
-    while (n)
-    {
-        len++;
-        n /= 10;
-    }
-    return len;
-}
-
-int ft_printnbr(int nbr)
-{
-    ft_putnbr_fd(nbr, 1);
-    return get_len(nbr);
-}
-
-static void	printunbr_rec(unsigned int n)
+static void	printnbr_rec(int n, int *len)
 {
 	char	c;
+	int		success;
 
+	if (*len < 0)
+		return ;
 	c = '0' + n % 10;
 	if (n > 9)
-		printunbr_rec(n / 10);
-	write(1, &c, 1);
+		printnbr_rec(n / 10, len);
+	if (*len < 0)
+		return ;
+	success = write(1, &c, 1);
+	if (success < 0)
+		*len = -1;
+	else
+		(*len)++;
 }
 
-int ft_printunbr(unsigned int nbr)
+int	ft_printnbr(int nbr)
 {
-    printunbr_rec(nbr);
-    return get_len(nbr);
+	int	len;
+
+	len = 0;
+	if (nbr == -2147483648)
+		return (write(1, "-2147483648", 11));
+	if (nbr < 0)
+	{
+		len = write(1, "-", 1);
+		nbr *= -1;
+	}
+	printnbr_rec(nbr, &len);
+	if (len < 0)
+		return (-1);
+	return (len);
+}
+
+static void	printunbr_rec(unsigned int n, int *len)
+{
+	char	c;
+	int		success;
+
+	if (*len < 0)
+		return ;
+	c = '0' + n % 10;
+	if (n > 9)
+		printunbr_rec(n / 10, len);
+	if (*len < 0)
+		return ;
+	success = write(1, &c, 1);
+	if (success < 0)
+		*len = -1;
+	else
+		(*len)++;
+}
+
+int	ft_printunbr(unsigned int nbr)
+{
+	int	len;
+
+	len = 0;
+	printunbr_rec(nbr, &len);
+	if (len < 0)
+		return (-1);
+	return (len);
 }
