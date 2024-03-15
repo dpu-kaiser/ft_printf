@@ -6,14 +6,13 @@
 /*   By: dkaiser <dkaiser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 18:19:47 by dkaiser           #+#    #+#             */
-/*   Updated: 2024/03/15 13:04:52 by dkaiser          ###   ########.fr       */
+/*   Updated: 2024/03/15 13:33:09 by dkaiser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-//# include "libft/libft.h"
 # include <stdarg.h>
 # include <unistd.h>
 
