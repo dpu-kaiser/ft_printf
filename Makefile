@@ -2,7 +2,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_FILES = src/ft_printf.c src/ft_printnbr.c src/ft_printhex.c src/ft_printaddr.c
+SRC_FILES = ft_printf.c ft_printnbr.c ft_printhex.c ft_printaddr.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 all: $(NAME)
