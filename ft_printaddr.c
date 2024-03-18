@@ -6,11 +6,11 @@
 /*   By: dkaiser <dkaiser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:33:53 by dkaiser           #+#    #+#             */
-/*   Updated: 2024/03/15 13:19:34 by dkaiser          ###   ########.fr       */
+/*   Updated: 2024/03/18 11:42:58 by dkaiser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 static void	printaddr_rec(unsigned long addr, int *len)
 {

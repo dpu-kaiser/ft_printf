@@ -6,11 +6,11 @@
 /*   By: dkaiser <dkaiser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:18:40 by dkaiser           #+#    #+#             */
-/*   Updated: 2024/03/15 12:40:43 by dkaiser          ###   ########.fr       */
+/*   Updated: 2024/03/18 11:41:27 by dkaiser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 static void	printnbr_rec(int n, int *len)
 {
