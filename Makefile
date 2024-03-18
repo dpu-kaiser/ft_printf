@@ -10,6 +10,9 @@ all: $(NAME)
 $(NAME): $(OBJ_FILES)
 	ar rcs $(NAME) $(OBJ_FILES)
 
+%.o: %.c
+	$(CC) -I. $(CFLAGS) -c $< -o $@
+
 clean:
 	rm -f $(OBJ_FILES)
 
