@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_FILES = ft_printf.c ft_printnbr.c ft_printhex.c ft_printaddr.c
-OBJ_FILES = $(SRC_FILES:.c=.o)
+OBJ_FILES = $(SRC_FILES:%.c=%.o)
 
 all: $(NAME)
 
